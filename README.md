@@ -41,7 +41,10 @@ Explore our latest collections here:
 This project was designed and developed by **[Ian Koran / iKorn Tech Solutions LTD]**.
 
 * **Contact the Developer:** [Chat on WhatsApp](https://wa.me/256758776560)
-* **Services:** Web Development, App biulding, Logo Design, Branding, Sales of Electronic devices.
+* **Services:** Web Development, App building, Logo Design, Branding, Sales of Electronic devices.
+* **Email:** [adiaiankorani@gmail.com]
+* **Telegram:** [Chat on Telegram](https://t.me/+256758776560)
+* **Facebook:** [Visit Facebook Page](https://www.facebook.com/ian.koran.senior/)
 
 ---
 <p align="center">
