@@ -203,3 +203,23 @@ html.dark .slider-dot {
 html.dark .slider-dot.active {
   background-color: #60A5FA; /* blue-400 */
 }
+
+.centered-ad-container {
+    /* 1. Allows the element to shrink on small screens */
+    width: 100%; 
+    
+    /* 2. Prevents the element from growing larger than the ad content */
+    max-width: 728px; 
+    
+    /* 3. Centers the block horizontally (works with width and max-width) */
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* 4. Optional: Adds a small buffer space on the left and right */
+    /* This prevents the ad from touching the screen edges on mobile */
+    padding: 0 10px; 
+    
+    /* 5. Adds vertical spacing */
+    margin-top: 20px; 
+    margin-bottom: 20px;
+}
