@@ -249,6 +249,10 @@ html.dark .slider-dot.active {
     border: 1px solid #ccc;
     text-decoration: none;
     cursor: pointer;
+    display: inline-block; /* Essential for padding to work */
+    
+    /* 🔑 KEY CHANGE: Make it pill-shaped */
+    border-radius: 999px; /* A high value creates perfect semicircular ends */
 }
 
 .page-link.active {
