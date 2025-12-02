@@ -181,3 +181,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Select all product cards
+    const productCards = document.querySelectorAll('.product-card');
+    
+    // Configuration variables (IMPORTANT: Adjust these if they change)
+    const whatsappNumber = '256783916256'; 
+    const domain = 'https://topstylistboutique.github.io/'; // Your base website URL
+
+    productCards.forEach(card => {
+        // 1. Find the elements using the new classes and data attribute
+        const productNameElement = card.querySelector('.product-name');
+        const productPriceElement = card.querySelector('.product-price');
+        // NOTE: We are using '.whatsapp-button' class here
+        const whatsappLinkElement = card.querySelector('.whatsapp-button'); 
+        const productId = card.getAttribute('data-product-id');
+
+        // Check if all necessary information is present
+        if (productNameElement && productPriceElement && whatsappLinkElement && productId) {
+
+            // 2. Extract and clean the text content
+            const name = productNameElement.textContent.trim();
+            const price = productPriceElement.textContent.trim();
+            
+            // 3. Construct the unique product URL (e.g., https://.../wm1.html)
+            const productUrl = domain + productId + '.html'; 
+
+            // 4. Construct the full message text
+            const message = `Hello, I'm interested in:%0A%0A` +
+                            `Product: ${name}%0A` +
+                            `Price: ${price}%0A` +
+                            `Order Link: ${productUrl}`;
+
+            // 5. Construct the final WhatsApp href link, encoding the message
+            const finalHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+            // 6. Set the href attribute dynamically
+            whatsappLinkElement.setAttribute('href', finalHref);
+        }
+    });
+});
