@@ -188,33 +188,39 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Configuration variables (IMPORTANT: Adjust these if they change)
     const whatsappNumber = '256783916256'; 
-    const domain = 'https://topstylistboutique.github.io/'; // Your base website URL
+    // This must be the base URL for your GitHub Pages site, including the trailing slash
+    const domain = 'https://topstylistboutique.github.io/'; 
 
     productCards.forEach(card => {
-        // 1. Find the elements using the new classes and data attribute
+        // 1. Find the necessary elements within this specific product card
         const productNameElement = card.querySelector('.product-name');
         const productPriceElement = card.querySelector('.product-price');
-        // NOTE: We are using '.whatsapp-button' class here
         const whatsappLinkElement = card.querySelector('.whatsapp-button'); 
-        const productId = card.getAttribute('data-product-id');
+        
+        // --- NEW: Find the image tag ---
+        const productImgElement = card.querySelector('img');
 
         // Check if all necessary information is present
-        if (productNameElement && productPriceElement && whatsappLinkElement && productId) {
+        if (productNameElement && productPriceElement && whatsappLinkElement && productImgElement) {
 
             // 2. Extract and clean the text content
             const name = productNameElement.textContent.trim();
             const price = productPriceElement.textContent.trim();
             
-            // 3. Construct the unique product URL (e.g., https://.../wm1.html)
-            const productUrl = domain + productId + '.html'; 
+            // --- NEW: Get the relative image source (e.g., 'images/wm1-min.jpg') ---
+            const relativeImgSrc = productImgElement.getAttribute('src');
+            
+            // 3. Construct the ABSOLUTE image URL (e.g., 'https://.../images/wm1-min.jpg')
+            const productImageUrl = domain + relativeImgSrc; 
 
-            // 4. Construct the full message text
+            // 4. Construct the full message text (using URL encoding for new lines and spaces)
+            // We now call it 'Image Link' since it links directly to the image.
             const message = `Hello, I'm interested in:%0A%0A` +
                             `Product: ${name}%0A` +
                             `Price: ${price}%0A` +
-                            `Order Link: ${productUrl}`;
+                            `Image Link: ${productImageUrl}`;
 
-            // 5. Construct the final WhatsApp href link, encoding the message
+            // 5. Construct the final WhatsApp href link
             const finalHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
             // 6. Set the href attribute dynamically
